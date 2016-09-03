@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Styles -->
     <attr name="styleCaldroidViewLayout" format="reference"/>
     <attr name="styleCaldroidLeftArrow" format="reference"/>

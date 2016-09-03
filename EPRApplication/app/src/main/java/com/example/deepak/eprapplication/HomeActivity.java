@@ -21,6 +21,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -59,6 +60,7 @@ public class HomeActivity extends AppCompatActivity
     private static int tag = 0;
     CaldroidFragment caldroidFragment;
     private HashMap<Date, Drawable> eventDates;
+    private HashMap<Date, String> eventDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,6 +172,7 @@ public class HomeActivity extends AppCompatActivity
             if (!s.trim().isEmpty()) {
                 EventBean event = new Gson().fromJson(s, EventBean.class);
                 eventDates = new HashMap<>();
+                eventDescription = new HashMap<>();
                 ColorDrawable colorDrawable = new ColorDrawable(ContextCompat.getColor(HomeActivity.this, R.color.cyan_500));
                 for (EventBean.Calender item : event.Calender) {
 
@@ -180,6 +183,8 @@ public class HomeActivity extends AppCompatActivity
                        /* String newDateString = df.format(startDate);
                         System.out.println(newDateString);*/
                         eventDates.put(startDate, colorDrawable);
+                        eventDescription.put(startDate, item.title);
+
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
@@ -191,6 +196,8 @@ public class HomeActivity extends AppCompatActivity
                         Toast.makeText(HomeActivity.this, "No event for this month.", Toast.LENGTH_SHORT).show();
                     }
                 }
+            } else {
+                Toast.makeText(HomeActivity.this, "No event for this month.", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -200,7 +207,7 @@ public class HomeActivity extends AppCompatActivity
         builder.setCancelable(false);
         builder.setMessage(message);
         builder.setTitle("Event");
-        builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.dismiss();
@@ -216,9 +223,6 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Calendar calendar = Calendar.getInstance();
-            int m = calendar.get(Calendar.MONTH);
-            int y = calendar.get(Calendar.YEAR);
 
             CaldroidListener caldroidListener = new CaldroidListener() {
                 @Override
@@ -228,7 +232,7 @@ public class HomeActivity extends AppCompatActivity
                         if (drawable != null) {
                             DateFormat df = new SimpleDateFormat("dd MMMMM yyyy");
                             String dateStr = df.format(date);
-                            showEventDialog("" + dateStr + " \n No description available.");
+                            showEventDialog("" + dateStr + " \n\n" + eventDescription.get(date));
                         }
                     }
                 }
@@ -255,7 +259,15 @@ public class HomeActivity extends AppCompatActivity
             t.replace(R.id.content_home, caldroidFragment);
             t.commit();
 
-            new Task(m + 1, y).execute();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Calendar calendar = Calendar.getInstance();
+                    int m = calendar.get(Calendar.MONTH);
+                    int y = calendar.get(Calendar.YEAR);
+                    new Task(m + 1, y).execute();
+                }
+            }, 300);
 
         } else if (id == R.id.nav_gallery) {
             FragmentManager fragmentManager = getSupportFragmentManager();

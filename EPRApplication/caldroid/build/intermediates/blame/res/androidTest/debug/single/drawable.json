@@ -4,40 +4,8 @@
         "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/red_border_gray_bg.xml"
     },
     {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/left_arrow.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/bundles/debug/res/drawable/left_arrow.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/disable_cell.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/disable_cell.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/left_arrow.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/left_arrow.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/cell_bg_dark.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/cell_bg_dark.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/right_arrow.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/right_arrow.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/disabled_cell_dark.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/disabled_cell_dark.xml"
-    },
-    {
         "merged": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/cell_bg.xml",
         "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/cell_bg.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/cell_bg.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/bundles/debug/res/drawable/cell_bg.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/right_arrow.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/bundles/debug/res/drawable/right_arrow.xml"
     },
     {
         "merged": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/red_border.xml",
@@ -48,22 +16,6 @@
         "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/disabled_cell_dark.xml"
     },
     {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/disabled_cell_dark.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/bundles/debug/res/drawable/disabled_cell_dark.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/cell_bg_dark.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/bundles/debug/res/drawable/cell_bg_dark.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/red_border_gray_bg.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/bundles/debug/res/drawable/red_border_gray_bg.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/red_border_dark.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/red_border_dark.xml"
-    },
-    {
         "merged": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/red_border_dark.xml",
         "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/red_border_dark.xml"
     },
@@ -72,39 +24,15 @@
         "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/left_arrow.xml"
     },
     {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/red_border_dark.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/bundles/debug/res/drawable/red_border_dark.xml"
+        "merged": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/disable_cell.xml",
+        "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/disable_cell.xml"
     },
     {
         "merged": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/cell_bg_dark.xml",
         "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/cell_bg_dark.xml"
     },
     {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/red_border_gray_bg.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/red_border_gray_bg.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/red_border.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/bundles/debug/res/drawable/red_border.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/cell_bg.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/cell_bg.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/disable_cell.xml",
-        "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/disable_cell.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/red_border.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/red_border.xml"
-    },
-    {
         "merged": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/right_arrow.xml",
         "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/bundles/debug/res/drawable/right_arrow.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/androidTest/debug/drawable/disable_cell.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/bundles/debug/res/drawable/disable_cell.xml"
     }
 ]

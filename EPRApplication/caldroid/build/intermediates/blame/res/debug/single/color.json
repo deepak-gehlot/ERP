@@ -4,22 +4,6 @@
         "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/src/main/res/color/cell_text_color.xml"
     },
     {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/debug/color/cell_text_color.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/src/main/res/color/cell_text_color.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/debug/color/cell_text_color.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/src/main/res/color/cell_text_color.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/debug/color/cell_text_color_dark.xml",
-        "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/src/main/res/color/cell_text_color_dark.xml"
-    },
-    {
-        "merged": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/build/intermediates/res/merged/debug/color/cell_text_color_dark.xml",
-        "source": "/Users/rocks/Documents/workspace/EPRApplication/EPRApplication/caldroid/src/main/res/color/cell_text_color_dark.xml"
-    },
-    {
         "merged": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/res/merged/debug/color/cell_text_color_dark.xml",
         "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/src/main/res/color/cell_text_color_dark.xml"
     }
