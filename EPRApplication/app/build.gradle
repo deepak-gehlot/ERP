@@ -23,5 +23,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0'
     compile 'com.android.support:design:23.1.1'
     compile files('libs/ksoap2-android-2.5.2.jar')
-compile project(':caldroid')
+    compile project(':caldroid')
+    compile files('libs/gson-2.2.4.jar')
 }

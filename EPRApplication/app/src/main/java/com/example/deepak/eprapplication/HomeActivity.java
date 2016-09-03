@@ -1,6 +1,10 @@
 package com.example.deepak.eprapplication;
 
+import com.google.gson.Gson;
+
+import com.example.deepak.eprapplication.Model.EventBean;
 import com.roomorama.caldroid.CaldroidFragment;
+import com.roomorama.caldroid.CaldroidListener;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
@@ -8,7 +12,13 @@ import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,6 +26,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -33,11 +44,21 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
 public class HomeActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static int tag = 0;
+    CaldroidFragment caldroidFragment;
+    private HashMap<Date, Drawable> eventDates;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,16 +110,17 @@ public class HomeActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    private void getNoticeboardData() {
+    private String getNoticeboardData(int m, int y) {
         String METHOD_NAME = "Calender_holiday_bymonth";
         String NAMESPACE = "http://tempuri.org/";
         String WebURL = "http://erp.erpservices.in/";
         String IMPORTANT_DATE = WebURL + "service.asmx";
         String SOAP_ACTION_IMPORTANT_DATES = "http://tempuri.org/Calender_holiday_bymonth";
+        String responce = "";
         try {
             SoapObject Request = new SoapObject(NAMESPACE, METHOD_NAME);
-            Request.addProperty("monthno", 9);
-            Request.addProperty("year", 2016);
+            Request.addProperty("monthno", m);
+            Request.addProperty("year", y);
 
             SoapSerializationEnvelope soapEnvelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
             soapEnvelope.dotNet = true;
@@ -107,25 +129,84 @@ public class HomeActivity extends AppCompatActivity
             HttpTransportSE transport = new HttpTransportSE(IMPORTANT_DATE);
             transport.call(SOAP_ACTION_IMPORTANT_DATES, soapEnvelope);
             SoapPrimitive resultString = (SoapPrimitive) soapEnvelope.getResponse();
-/*at const page
-public static final String SOAP_ACTION_IMPORTANT_DATES = "http://tempuri.org/Calender_holiday_bymonth";
-public static final String WebURL = "http://erp.erpservices.in/";
-
-public static final String IMPORTANT_DATE = WebURL + "service.asmx";
-
-*/
+            responce = resultString.toString().substring(7, resultString.toString().length());
             Log.e("", "Error: " + resultString.toString());
         } catch (Exception ex) {
             Log.e("", "Error: " + ex.getMessage());
         }
+        return responce;
     }
 
-    private class Task extends AsyncTask<Void, Void, Void> {
-        @Override
-        protected Void doInBackground(Void... voids) {
-            getNoticeboardData();
-            return null;
+    private class Task extends AsyncTask<Void, Void, String> {
+
+        private int mounth, year;
+        private ProgressDialog mProgressDialog;
+
+
+        public Task(int m, int y) {
+            this.mounth = m;
+            this.year = y;
         }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressDialog = new ProgressDialog(HomeActivity.this);
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.setMessage("Loading event...");
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+
+            return getNoticeboardData(mounth, year);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            mProgressDialog.dismiss();
+            if (!s.trim().isEmpty()) {
+                EventBean event = new Gson().fromJson(s, EventBean.class);
+                eventDates = new HashMap<>();
+                ColorDrawable colorDrawable = new ColorDrawable(ContextCompat.getColor(HomeActivity.this, R.color.cyan_500));
+                for (EventBean.Calender item : event.Calender) {
+
+                    DateFormat df = new SimpleDateFormat("dd MMMMM yyyy");
+                    Date startDate;
+                    try {
+                        startDate = df.parse(item.ShowDate);
+                       /* String newDateString = df.format(startDate);
+                        System.out.println(newDateString);*/
+                        eventDates.put(startDate, colorDrawable);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
+                    if (eventDates != null && eventDates.size() != 0) {
+                        caldroidFragment.setBackgroundDrawableForDates(eventDates);
+                        caldroidFragment.refreshView();
+                    } else {
+                        Toast.makeText(HomeActivity.this, "No event for this month.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+        }
+    }
+
+    private void showEventDialog(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+        builder.setCancelable(false);
+        builder.setMessage(message);
+        builder.setTitle("Event");
+        builder.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.create().show();
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -135,19 +216,47 @@ public static final String IMPORTANT_DATE = WebURL + "service.asmx";
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Calendar calendar = Calendar.getInstance();
+            int m = calendar.get(Calendar.MONTH);
+            int y = calendar.get(Calendar.YEAR);
 
-            new Task().execute();
+            CaldroidListener caldroidListener = new CaldroidListener() {
+                @Override
+                public void onSelectDate(Date date, View view) {
+                    if (eventDates != null && eventDates.size() != 0) {
+                        Drawable drawable = eventDates.get(date);
+                        if (drawable != null) {
+                            DateFormat df = new SimpleDateFormat("dd MMMMM yyyy");
+                            String dateStr = df.format(date);
+                            showEventDialog("" + dateStr + " \n No description available.");
+                        }
+                    }
+                }
 
-            CaldroidFragment caldroidFragment = new CaldroidFragment();
+                @Override
+                public void onChangeMonth(int month, int year) {
+                    super.onChangeMonth(month, year);
+                    if (tag != 0) {
+                        new Task(month, year).execute();
+                    } else {
+                        tag = 1;
+                    }
+                }
+            };
+
+            caldroidFragment = new CaldroidFragment();
             Bundle args = new Bundle();
             Calendar cal = Calendar.getInstance();
             args.putInt(CaldroidFragment.MONTH, cal.get(Calendar.MONTH) + 1);
             args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
             caldroidFragment.setArguments(args);
-
+            caldroidFragment.setCaldroidListener(caldroidListener);
             FragmentTransaction t = getSupportFragmentManager().beginTransaction();
             t.replace(R.id.content_home, caldroidFragment);
             t.commit();
+
+            new Task(m + 1, y).execute();
+
         } else if (id == R.id.nav_gallery) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.content_home, PlaceholderFragment.newInstance(1))

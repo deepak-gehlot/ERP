@@ -14,5 +14,13 @@
     {
         "merged": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/build/intermediates/res/merged/release/drawable-hdpi-v4/calendar_prev_arrow.png",
         "source": "/Users/rocks/Documents/demo/Caldroid-master/caldroid/src/main/res/drawable-hdpi/calendar_prev_arrow.png"
+    },
+    {
+        "merged": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/res/merged/release/drawable-hdpi-v4/calendar_next_arrow.png",
+        "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/src/main/res/drawable-hdpi/calendar_next_arrow.png"
+    },
+    {
+        "merged": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/build/intermediates/res/merged/release/drawable-hdpi-v4/calendar_prev_arrow.png",
+        "source": "/Users/rocks/Documents/ERPREPO/ERP/EPRApplication/caldroid/src/main/res/drawable-hdpi/calendar_prev_arrow.png"
     }
 ]
